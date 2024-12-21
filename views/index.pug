@@ -1,5 +1,38 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  include ./includes/nav.pug
+
+  main 
+    header 
+      div 
+        h1 Shorten Your Loooong Links :&#41;
+        p Linkly is an efficient and easy-to-use URL shortening service that streamlines your online experience.
+      div
+        include ./includes/input.pug
+        .paste  
+          .radio 
+            .point 
+          p Auto Paste from Clipboard
+        p You can create 
+          span 05 
+          |more links. Register  Now to enjoy Unlimited usage question-circle
+    .table
+      .thead
+        .tr 
+          .th Short Link
+          .th Original Link
+          .th QR Code
+          .th Clicks
+          .th Status
+          .th Date 
+            div
+              img(src="/images/Group 16.svg" alt="sort icon")
+      .tbody
+        each state in [true, false, true, true, false]
+          include ./includes/data.pug
+        .tfoot
+          p
+            span Register Now 
+            |to enjoy Unlimited History
+

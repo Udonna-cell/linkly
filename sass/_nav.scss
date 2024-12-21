@@ -1,0 +1,25 @@
+@import "colors";
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & > .logo > p span {
+        font-size: 36.91px;
+        font-weight: 800;
+        background: $Gradient;
+        background-clip: text;
+        color: transparent;
+        font-family: "Inter", sans-serif;
+        
+        & > sup {
+            color: $Grey;
+        }
+    }
+    & > .register {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+}
