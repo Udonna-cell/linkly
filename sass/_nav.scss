@@ -23,3 +23,10 @@ nav {
         align-items: center;
     }
 }
+
+@media (max-width: 800px) {
+    nav > .logo > p sup,
+    nav > .register > button:last-child {
+        display: none;
+    }
+}
