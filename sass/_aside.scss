@@ -1,0 +1,16 @@
+aside {
+    position: fixed;
+    border-radius: 48px;
+    border: 1px solid #353C4A;
+    background: #181E29;
+    padding: 7px;
+    right: -6%;
+    top: 50%;
+    transform: rotate(90deg);
+    display: flex;
+    gap: 1rem;
+}
+
+img[alt="moon icon"] {
+    transform: rotate(-110deg);
+}

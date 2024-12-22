@@ -33,7 +33,18 @@ nav > .register {
   cursor: pointer;
 }
 
-.btn.icon {
+.transparent {
+  background: transparent;
+  padding: 15px 21px;
+  border: none;
+  color: #FFF;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn.icon,
+.transparent {
   display: flex;
   gap: 10px;
   justify-content: center;
@@ -93,6 +104,23 @@ nav > .register {
   font-weight: 300;
   caret-color: #EB568E;
   color: #FFF;
+}
+
+aside {
+  position: fixed;
+  border-radius: 48px;
+  border: 1px solid #353C4A;
+  background: #181E29;
+  padding: 7px;
+  right: -6%;
+  top: 50%;
+  transform: rotate(90deg);
+  display: flex;
+  gap: 1rem;
+}
+
+img[alt="moon icon"] {
+  transform: rotate(-110deg);
 }
 
 * {
