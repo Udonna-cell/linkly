@@ -1,4 +1,3 @@
-// Select all sections
 const aside = document.querySelector("aside");
 
 // Function to check if the user has scrolled 30% of the viewport height
@@ -18,3 +17,5 @@ function checkScroll() {
 
 // Listen for the scroll event
 window.addEventListener("scroll", checkScroll);
+
+

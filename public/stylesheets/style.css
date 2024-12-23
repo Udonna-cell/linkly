@@ -179,7 +179,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   padding: 2rem;
-  height: 100vh;
+  margin-bottom: 2rem;
+  min-height: 100vh;
 }
 
 main {
