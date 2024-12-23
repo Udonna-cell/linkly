@@ -4,13 +4,23 @@ aside {
     border: 1px solid #353C4A;
     background: #181E29;
     padding: 7px;
-    right: -6%;
+    right: -20%;
     top: 50%;
     transform: rotate(90deg);
     display: flex;
     gap: 1rem;
+    transition: right 0.2s linear;
 }
 
 img[alt="moon icon"] {
     transform: rotate(-110deg);
+}
+aside.visible {
+    right: -6%;
+}
+
+@media (max-width: 800px) {
+    aside {
+        display: none;
+    }
 }

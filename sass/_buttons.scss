@@ -32,8 +32,8 @@
 
 .btn.dark {
   background-color: $Grey;
-  border: 1px solid #353C4A;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.10);
+  border: 1px solid #353c4a;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .radio {
@@ -47,7 +47,7 @@
 .point {
   width: 17px;
   height: 17px;
-  background: #181E29;
+  background: #181e29;
   border-radius: 50%;
   position: absolute;
   transform: translateY(-50%);
@@ -61,6 +61,17 @@
   }
 }
 
-@media (max-width: 767px) {
+.btn.drop.dark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 31px;
+  background-color: rgba(28, 40, 63, 0.69);
+  padding: 10px;
+}
 
+@media (max-width: 800px) {
+  
 }

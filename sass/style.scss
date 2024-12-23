@@ -19,134 +19,172 @@ body {
   padding: 2rem;
   height: 100vh;
 }
-main  {
-    max-width: 1000px;
-    // background: orange;
-    margin: auto;
-    margin-top: 5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
+main {
+  max-width: 1000px;
+  // background: orange;
+  margin: auto;
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 header {
-    display: flex;
-    flex-direction: column;
-    gap: 46px;
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
 }
 header > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
 }
 header > div > h1 {
-    font-size: 60px;
-    font-weight: bolder;
-    background-image: $Gradient;
-    background-clip: text;
-    color: transparent;
+  font-size: 60px;
+  font-weight: bolder;
+  background-image: $Gradient;
+  background-clip: text;
+  color: transparent;
 }
 header > div > p {
-    font-size: 1rem;
-    font-weight: lighter;
-    color: $Lite;
-    width: 59%;
-    text-align: center;
+  font-size: 1rem;
+  font-weight: lighter;
+  color: $Lite;
+  width: 59%;
+  text-align: center;
 }
 .paste {
-    display: flex;
-    gap: 15px;
+  display: flex;
+  gap: 15px;
 }
 .paste > p {
-    font-size: 14px;
-    color: #C9CED6;
-    font-weight: 300;
+  font-size: 14px;
+  color: #c9ced6;
+  font-weight: 300;
 }
 header > div:last-child > p {
-    font-size: 14px;
-    color: #C9CED6;
-    font-weight: 300;
+  font-size: 14px;
+  color: #c9ced6;
+  font-weight: 300;
 
-    & > span {
-        color: $Brand-Primary-Pink;
-        font-weight: 600;
-    }
+  & > span {
+    color: $Brand-Primary-Pink;
+    font-weight: 600;
+  }
 }
 .th {
-    display: flex;
-    gap: 6px;
+  display: flex;
+  gap: 6px;
 }
 .tr {
-    display: grid;
-    grid-template-columns: 1fr 1fr 76px 76px 0.5fr 96px;
-    gap: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 76px 76px 0.5fr 96px;
+  gap: 0.5rem;
 }
 .thead,
 .tbody > .tr {
-    background: $Grey;
-    padding: 16px 15px;
-    border-radius: 10px 10px 0 00;
+  background: $Grey;
+  padding: 16px 15px;
+  border-radius: 10px 10px 0 00;
 }
 .th,
 .th > div {
-    text-align: start;
-    font-weight: bold;
-    font-size: 15px;
-    color: $Lite;
+  text-align: start;
+  font-weight: bold;
+  font-size: 15px;
+  color: $Lite;
 }
 .td {
-    display: flex;
-    // justify-content: center;
-    align-items: center;
-    cursor: pointer;
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .tbody > .tr {
-    background-color: rgba(24, 30, 41, 0.22);
-    border-radius: 0;
+  background-color: rgba(24, 30, 41, 0.22);
+  border-radius: 0;
 }
 .tbody .td {
-    font-size: 14px;
-    font-weight: lighter;
-    color: $Lite;
-    gap: 010px;
+  font-size: 14px;
+  font-weight: lighter;
+  color: $Lite;
+  gap: 010px;
 }
 .tbody .td:nth-child(3) {
-    justify-content: center;
+  justify-content: center;
 }
 .td.active {
-    color: $Active;
+  color: $Active;
 }
 .td.inactive {
-    color: $Inactive;
+  color: $Inactive;
 }
 .tbody {
-    position: relative;
+  position: relative;
 }
 
 .tfoot {
-    backdrop-filter: blur(5px);
-    background: rgba(#0B101B, 0.3);
-    display: flex;
-    justify-content: center;
-    padding: 16px 15px;
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    right: 0;
-    // filter: blur(40%);
+  backdrop-filter: blur(5px);
+  background: rgba(#0b101b, 0.3);
+  display: flex;
+  justify-content: center;
+  padding: 16px 15px;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  // filter: blur(40%);
 
-    & > p {
-        color: $Lite;
-        font-size: 14px;
-        font-weight: lighter;
-         
-        & > span {
-            color: $Brand-Primary-Blue;
-            text-decoration: underline;
-            cursor: pointer;
-        }
+  & > p {
+    color: $Lite;
+    font-size: 14px;
+    font-weight: lighter;
+
+    & > span {
+      color: $Brand-Primary-Blue;
+      text-decoration: underline;
+      cursor: pointer;
     }
+  }
+}
+.table > .tbody > .tr > .td:nth-child(2),
+.table > .thead > .tr > .th:nth-child(2) {
+  display: none;
+}
+// .table > .thead > .tr > .th:not(:first-child) {
+//   display: none;
+// }
+
+@media (max-width: 800px) {
+  body {
+    padding: 1.62rem;
+    padding-top: 0.75rem;
+  }
+  main {
+    margin-top: 4.06rem;
+  }
+  header > div h1 {
+    font-size: 35px;
+    text-align: center;
+  }
+  header > div > p {
+    width: auto;
+  }
+  .table > .thead > .tr > .th:not(:first-child),
+  .table > .tbody > .tr > .td:not(:first-child) {
+    display: none;
+  }
+  .table > .tbody > .tr > .td:nth-child(2) {
+    display: block;
+  }
+  .thead {
+    & .tr {
+      display: grid;
+      grid-template-columns: 1fr 96px;
+      gap: 0.5rem;
+    }
+  }
 }

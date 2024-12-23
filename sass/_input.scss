@@ -1,24 +1,41 @@
 @import "colors";
 
 .input {
-    display: flex;
-    align-items: center;
-    width: 659px;
-    border-radius: 48px;
-    background: #181E29;
-    box-shadow: inset 0 0 0 4px rgba($color: #353C4A, $alpha: 1.0);
-    padding: 8px 7.5px;
-    padding-left: 25px;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  width: 659px;
+  border-radius: 48px;
+  background: #181e29;
+  box-shadow: inset 0 0 0 4px rgba($color: #353c4a, $alpha: 1);
+  padding: 8px 7.5px;
+  padding-left: 25px;
+  gap: 10px;
 }
 .input > input {
-    flex-grow: 1;
-    align-self: stretch;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-size: 1rem;
-    font-weight: 300;
-    caret-color: $Brand-Primary-Pink;
-    color: #FFF;
+  flex-grow: 1;
+  align-self: stretch;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 300;
+  caret-color: $Brand-Primary-Pink;
+  color: #fff;
+}
+.input > button > div {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .input,
+  .input input {
+    width: 100%;
+  }
+
+  .input > button > p {
+    display: none;
+  }
+  .input > button > div {
+    display: block;
+  }
 }

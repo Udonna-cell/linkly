@@ -21,6 +21,12 @@ nav > .register {
   align-items: center;
 }
 
+@media (max-width: 800px) {
+  nav > .logo > p sup,
+  nav > .register > button:last-child {
+    display: none;
+  }
+}
 .btn {
   padding: 15px 21px;
   border-radius: 48px;
@@ -53,7 +59,7 @@ nav > .register {
 
 .btn.dark {
   background-color: #181E29;
-  border: 1px solid #353C4A;
+  border: 1px solid #353c4a;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -69,7 +75,7 @@ nav > .register {
 .point {
   width: 17px;
   height: 17px;
-  background: #181E29;
+  background: #181e29;
   border-radius: 50%;
   position: absolute;
   transform: translateY(-50%);
@@ -82,12 +88,23 @@ nav > .register {
   background-color: #144EE3;
 }
 
+.btn.drop.dark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 31px;
+  background-color: rgba(28, 40, 63, 0.69);
+  padding: 10px;
+}
+
 .input {
   display: flex;
   align-items: center;
   width: 659px;
   border-radius: 48px;
-  background: #181E29;
+  background: #181e29;
   box-shadow: inset 0 0 0 4px #353c4a;
   padding: 8px 7.5px;
   padding-left: 25px;
@@ -103,26 +120,52 @@ nav > .register {
   font-size: 1rem;
   font-weight: 300;
   caret-color: #EB568E;
-  color: #FFF;
+  color: #fff;
 }
 
+.input > button > div {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .input,
+  .input input {
+    width: 100%;
+  }
+  .input > button > p {
+    display: none;
+  }
+  .input > button > div {
+    display: block;
+  }
+}
 aside {
   position: fixed;
   border-radius: 48px;
   border: 1px solid #353C4A;
   background: #181E29;
   padding: 7px;
-  right: -6%;
+  right: -20%;
   top: 50%;
   transform: rotate(90deg);
   display: flex;
   gap: 1rem;
+  transition: right 0.2s linear;
 }
 
 img[alt="moon icon"] {
   transform: rotate(-110deg);
 }
 
+aside.visible {
+  right: -6%;
+}
+
+@media (max-width: 800px) {
+  aside {
+    display: none;
+  }
+}
 * {
   padding: 0;
   margin: 0;
@@ -185,13 +228,13 @@ header > div > p {
 
 .paste > p {
   font-size: 14px;
-  color: #C9CED6;
+  color: #c9ced6;
   font-weight: 300;
 }
 
 header > div:last-child > p {
   font-size: 14px;
-  color: #C9CED6;
+  color: #c9ced6;
   font-weight: 300;
 }
 header > div:last-child > p > span {
@@ -280,4 +323,38 @@ header > div:last-child > p > span {
   color: #144EE3;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.table > .tbody > .tr > .td:nth-child(2),
+.table > .thead > .tr > .th:nth-child(2) {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  body {
+    padding: 1.62rem;
+    padding-top: 0.75rem;
+  }
+  main {
+    margin-top: 4.06rem;
+  }
+  header > div h1 {
+    font-size: 35px;
+    text-align: center;
+  }
+  header > div > p {
+    width: auto;
+  }
+  .table > .thead > .tr > .th:not(:first-child),
+  .table > .tbody > .tr > .td:not(:first-child) {
+    display: none;
+  }
+  .table > .tbody > .tr > .td:nth-child(2) {
+    display: block;
+  }
+  .thead .tr {
+    display: grid;
+    grid-template-columns: 1fr 96px;
+    gap: 0.5rem;
+  }
 }
