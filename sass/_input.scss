@@ -22,7 +22,7 @@
   caret-color: $Brand-Primary-Pink;
   color: #fff;
 }
-.input > button > div {
+.input > button > div.icon {
   display: none;
 }
 
@@ -35,7 +35,7 @@
   .input > button > p {
     display: none;
   }
-  .input > button > div {
+  .input > button > div.icon {
     display: block;
   }
 }

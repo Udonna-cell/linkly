@@ -28,7 +28,8 @@ nav > .register {
   }
 }
 .btn {
-  padding: 15px 21px;
+  width: 129px;
+  height: 48.3px;
   border-radius: 48px;
   background-color: #144EE3;
   color: #FFF;
@@ -57,6 +58,30 @@ nav > .register {
   align-items: center;
 }
 
+.load-1 {
+  width: 10px;
+  height: 10px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  animation: load 0.51s linear 0s infinite;
+}
+
+.load-2 {
+  width: 10px;
+  height: 10px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  animation: load 0.55s linear 1.9s infinite;
+}
+
+.load-3 {
+  width: 10px;
+  height: 10px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  animation: load 1.5s linear 2s infinite;
+}
+
 .btn.dark {
   background-color: #181E29;
   border: 1px solid #353c4a;
@@ -83,7 +108,8 @@ nav > .register {
   left: 7%;
   transition: all 0.2s linear;
 }
-.point:active {
+
+.point.on {
   left: 50%;
   background-color: #144EE3;
 }
@@ -99,6 +125,16 @@ nav > .register {
   padding: 10px;
 }
 
+@keyframes load {
+  0% {
+    width: 10px;
+    height: 10px;
+  }
+  100% {
+    width: 5px;
+    height: 5px;
+  }
+}
 .input {
   display: flex;
   align-items: center;
@@ -123,7 +159,7 @@ nav > .register {
   color: #fff;
 }
 
-.input > button > div {
+.input > button > div.icon {
   display: none;
 }
 
@@ -135,7 +171,7 @@ nav > .register {
   .input > button > p {
     display: none;
   }
-  .input > button > div {
+  .input > button > div.icon {
     display: block;
   }
 }
