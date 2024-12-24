@@ -32,8 +32,12 @@ block content
             div
               img(src="/images/Group 16.svg" alt="sort icon")
       .tbody
-        each state in [true, false, true, true, false]
-          include ./includes/data.pug
+        if isEmpty 
+          .empty 
+            img(src="/images/empty-box.png", alt="empty box icon")
+        else 
+          each state in [true, false, true, true, false]
+            include ./includes/data.pug
         .tfoot
           p
             span Register Now 

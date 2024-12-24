@@ -33,7 +33,7 @@ router.get('/', async function(req, res, next) {
   } catch (error) {
     console.error("faild to style the page")
   }
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Express', isEmpty: true});
 });
 
 module.exports = router;

@@ -39,7 +39,7 @@ wss.on('connection', function(ws) {
 
   // Handle messages from the WebSocket client
   ws.on('message', function(message) {
-    console.log('Received from client: %s', message);
+    console.log(JSON.parse(message).userId);
 
     // Echo the message back to the client
     ws.send(`You said: ${message}`);

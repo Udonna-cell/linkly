@@ -2,6 +2,9 @@ doctype html
 html
   head
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    script.
+      // Establish a WebSocket connection
+      const socket = new WebSocket("ws://192.168.40.92:3000/");
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
