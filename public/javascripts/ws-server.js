@@ -1,6 +1,4 @@
-
 const btn = document.querySelector(".input > button");
-
 
 // Event listener for button click
 btn.addEventListener("click", () => {
@@ -17,7 +15,7 @@ btn.addEventListener("click", () => {
 // Event listener for incoming messages from the WebSocket server
 socket.addEventListener("message", (event) => {
   const message = event.data;
-  
+
   // Change button content after receiving the message
   btn.innerHTML = `
     <p>Shorten Now!</p>
@@ -75,10 +73,10 @@ function generateUserId(length = 8) {
 function setUser() {
   const cookies = getAllCookies();
   let userId = cookies.user;
-  
+
   if (!userId) {
-    userId = generateUserId();  // Generate a new user ID if none exists
-    
+    userId = generateUserId();
+
     let date = new Date();
     date.setMinutes(date.getMinutes() + 10); // Cookie expires in 10 minutes
     document.cookie = `user=${userId}; expires=${date.toUTCString()}; path=/`;
@@ -88,5 +86,25 @@ function setUser() {
   }
 }
 
+function deleteAllCookies() {
+  document.cookie.split(";").forEach((cookie) => {
+    const eqPos = cookie.indexOf("=");
+    const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
+    document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+  });
+}
+
 // Initialize the user on page load
-setUser();
+const cookies = getAllCookies();
+let userId = cookies.user;
+
+if (!false) {
+  userId = generateUserId();
+
+  let date = new Date();
+  date.setMinutes(date.getMinutes() + 10); // Cookie expires in 10 minutes
+  document.cookie = `user=${userId}; expires=${date.toUTCString()}; path=/`;
+
+  // Send the user ID to the WebSocket server
+  socket.send(JSON.stringify({ userId }));
+}
