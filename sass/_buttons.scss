@@ -1,8 +1,9 @@
 @import "colors";
 
 .btn {
-  width: calc(15px * 8.6);
-  height: calc(21px * 2.3);
+  // width: calc(15px * 8.6);
+  height: 50px;
+  padding: 15px 21px;
   
   border-radius: 48px;
   background-color: $Brand-Primary-Blue;

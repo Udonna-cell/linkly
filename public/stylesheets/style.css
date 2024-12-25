@@ -28,8 +28,8 @@ nav > .register {
   }
 }
 .btn {
-  width: 129px;
-  height: 48.3px;
+  height: 50px;
+  padding: 15px 21px;
   border-radius: 48px;
   background-color: #144EE3;
   color: #FFF;
@@ -185,6 +185,8 @@ aside {
   top: 50%;
   transform: rotate(90deg);
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
   transition: right 0.2s linear;
 }

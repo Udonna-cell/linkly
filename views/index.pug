@@ -36,7 +36,7 @@ block content
           .empty 
             img(src="/images/empty-box.png", alt="empty box icon")
         else 
-          each state in [true, false, true, true, false]
+          each i in results
             include ./includes/data.pug
         .tfoot
           p
