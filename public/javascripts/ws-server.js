@@ -61,8 +61,16 @@ function generateUserId(length = 8) {
 }
 function setUser() {
   if (getAllCookies().user) {
-    alert("found user");
-    alert(getAllCookies().user);
+    const userId = generateUserId();
+    socket.send(JSON.stringify({ userId }));
+
+    let date = new Date();
+    date.setMinutes(date.getMinutes() + 10); // Cookie expires in 10 minutes
+    document.cookie =
+      `user=${userId}; expires=` + date.toUTCString() + "; path=/";
+
+    // alert("found user");
+    // alert(getAllCookies().user);
   } else {
     const userId = generateUserId();
     socket.send(JSON.stringify({ userId }));
