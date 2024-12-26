@@ -145,6 +145,9 @@ nav > .register {
   padding: 8px 7.5px;
   padding-left: 25px;
   gap: 10px;
+  transition-property: all;
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .input > input {
@@ -163,7 +166,38 @@ nav > .register {
   display: none;
 }
 
+.input.invalid {
+  position: relative;
+  box-shadow: inset 0 0 0 4px #8d1010;
+}
+.input.invalid::before {
+  position: absolute;
+  content: "Invalid URL";
+  color: red;
+  font-size: small;
+  font-weight: bold;
+  bottom: -35%;
+  left: 7%;
+}
+
+.input.valid {
+  position: relative;
+  box-shadow: inset 0 0 0 4px #188026;
+}
+.input.valid::before {
+  position: absolute;
+  content: "Invalid URL";
+  color: green;
+  font-weight: bold;
+  font-size: small;
+  bottom: -35%;
+  left: 7%;
+}
+
 @media (max-width: 800px) {
+  .input {
+    margin-bottom: 1rem;
+  }
   .input,
   .input input {
     width: 100%;
@@ -290,7 +324,7 @@ header > div:last-child > p > span {
 .tr {
   display: grid;
   grid-template-columns: 1fr 1fr 76px 76px 0.5fr 96px;
-  gap: 0.5rem;
+  gap: 2rem;
 }
 
 .thead,
@@ -386,6 +420,6 @@ header > div:last-child > p > span {
   .tbody .tr {
     display: grid;
     grid-template-columns: 1fr 35px;
-    gap: 0.5rem;
+    gap: 2.5rem;
   }
 }

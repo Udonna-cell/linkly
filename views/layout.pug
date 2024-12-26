@@ -9,6 +9,7 @@ html
       // Use the 'user' variable passed from the server
       const cookie = "#{user}";  // This will output the 'user' value into the script
     title= title
+    script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     block content
@@ -16,3 +17,5 @@ html
     script(src="/javascripts/clipboard.js")
     script(src="/javascripts/index.js")
     script(src="/javascripts/ws-server.js")
+    script(src="/javascripts/alert.js")
+    script(src="/javascripts/validation.js")

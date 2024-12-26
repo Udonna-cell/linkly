@@ -1,6 +1,6 @@
 const btn = document.querySelector(".input > button");
+const inputLayer = document.querySelector(".input");
 // alert(cookie)
-
 
 btn.addEventListener("click", () => {
   if (input && input.value) {
@@ -9,7 +9,21 @@ btn.addEventListener("click", () => {
       <div class="load-2"></div>
       <div class="load-3"></div>
     `;
-    socket.send(JSON.stringify({ url: input.value, cookie }));
+    let isURLValid = validateURL(input.value);
+    if (isURLValid) {
+      inputLayer.classList.remove("invalid");
+      inputLayer.classList.add("valid");
+      socket.send(JSON.stringify({ url: input.value, cookie }));
+    } else {
+      inputLayer.classList.remove("valid");
+      inputLayer.classList.add("invalid");
+      btn.innerHTML = `
+      <p>Shorten Now!</p>
+      <div class='icon'>
+        <img src="/images/arrow-right.svg" alt="arrow-right icon"/>
+      </div>
+      `;
+    }
   }
 });
 
@@ -25,6 +39,7 @@ socket.addEventListener("message", (event) => {
     </div>
   `;
   console.log(message);
+  alertSuccess()
 
   // Optionally alert or log the shortened URL
   // alert(`New URL: ${JSON.parse(message).url}`);
