@@ -1,5 +1,5 @@
 const btn = document.querySelector(".input > button");
-alert(cookie)
+// alert(cookie)
 
 
 btn.addEventListener("click", () => {
@@ -33,7 +33,7 @@ socket.addEventListener("message", (event) => {
 // Event listener for when the WebSocket connection is opened
 socket.addEventListener("open", () => {
   console.log("Connected to the WebSocket server!");
-  alert("Connected to the WebSocket server!");
+  // alert("Connected to the WebSocket server!");
 });
 
 // Event listener for WebSocket errors

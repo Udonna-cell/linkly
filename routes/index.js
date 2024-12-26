@@ -49,11 +49,11 @@ router.get("/", async function (req, res, next) {
         console.error("Failed to compile SASS:", error);
         return res.status(500).send("Failed to compile CSS");
       }
-      let url = process.env.URL || "ws://192.168.40.92:3000/"
+      let ws = process.env.WS || "ws://192.168.40.92:3000/"
       results = (JSON.parse(JSON.stringify(results)));
       console.log(results);
       // Render the page with results
-      res.render("index", { title: "Express", isEmpty, results, user });
+      res.render("index", { title: "Express", isEmpty, results, user, ws });
     }
   );
 });
