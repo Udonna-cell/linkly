@@ -1,3 +1,4 @@
+require("dotenv").config()
 const express = require("express");
 const router = express.Router();
 const sass = require("sass");
@@ -48,7 +49,7 @@ router.get("/", async function (req, res, next) {
         console.error("Failed to compile SASS:", error);
         return res.status(500).send("Failed to compile CSS");
       }
-
+      let url = process.env.URL || "ws://192.168.40.92:3000/"
       results = (JSON.parse(JSON.stringify(results)));
       console.log(results);
       // Render the page with results
