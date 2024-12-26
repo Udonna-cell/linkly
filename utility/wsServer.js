@@ -6,7 +6,7 @@ const createWsServer = (server) => {
   const wss = new WebSocket.Server({ server });
 
   wss.on("connection", (ws, req) => {
-    // Helper function to generate a random URL ID
+
     function generateURLId(length = 8) {
       const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
       let randomStr = "";
@@ -30,7 +30,8 @@ const createWsServer = (server) => {
       return cookies;
     }
 
-    console.log(`Client connected to ${req.url}`);
+    console.log(`Client connected to ${JSON.stringify(req.url)}`);
+    
     ws.send(JSON.stringify({ msg: "Hello from WebSocket server!" }));
 
     // Handling incoming messages from the client
@@ -44,9 +45,9 @@ const createWsServer = (server) => {
 
       if (message.url) {
         try {
-          const cookies = req.headers.cookie;
-          console.log("Cookies:", cookies);
-          let user = getAllCookies(cookies).user; // Extract user ID from cookies
+          const user = message.cookie;
+          console.log("Cookies:", message);
+          // let user = getAllCookies(cookies).user; // Extract user ID from cookies
           if (!user) {
             console.error("User not found in cookies");
             ws.send(JSON.stringify({ msg: "User not found in cookies" }));
@@ -64,7 +65,9 @@ const createWsServer = (server) => {
             function (error, results) {
               if (error) {
                 console.error("Error inserting into database:", error);
-                ws.send(JSON.stringify({ msg: "Error processing your request" }));
+                ws.send(
+                  JSON.stringify({ msg: "Error processing your request" })
+                );
                 return;
               }
               console.log("Successfully inserted the shortened link");
@@ -75,18 +78,34 @@ const createWsServer = (server) => {
                 [user],
                 function (error, results) {
                   if (error) {
-                    console.error("Error fetching user links from database:", error);
+                    console.error(
+                      "Error fetching user links from database:",
+                      error
+                    );
                     return;
                   }
-                  console.log("Successfully retrieved user links:", results);
-                  ws.send(JSON.stringify({ msg: "Shortened URL created", shortenedURL: shortenLink, userLinks: results }));
+                  // console.log("Successfully retrieved user links:", results);
+                  ws.send(
+                    JSON.stringify({
+                      msg: "Shortened URL created",
+                      shortenedURL: shortenLink,
+                      userLinks: results,
+                    })
+                  );
                 }
               );
             }
           );
         } catch (error) {
-          console.error("An error occurred while processing the message:", error);
-          ws.send(JSON.stringify({ msg: "An error occurred while processing your request" }));
+          console.error(
+            "An error occurred while processing the message:",
+            error
+          );
+          ws.send(
+            JSON.stringify({
+              msg: "An error occurred while processing your request",
+            })
+          );
         }
       }
     });

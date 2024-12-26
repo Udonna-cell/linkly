@@ -23,7 +23,7 @@ block content
       .thead
         .tr 
           .th Short Link
-          .th 
+          .th dropdown
           .th Original Link
           .th QR Code
           .th Clicks
@@ -36,7 +36,7 @@ block content
           .empty 
             img(src="/images/empty-box.png", alt="empty box icon")
         else 
-          each i in results
+          each data in results
             include ./includes/data.pug
         .tfoot
           p

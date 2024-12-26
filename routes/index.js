@@ -11,7 +11,7 @@ router.get("/", async function (req, res, next) {
   const cookies = req.headers.cookie;
   let user = cookies ? getAllCookies(cookies).user : null;
 
-  // console.log('Received cookie date: ', user);
+  console.log('Received cookie date: ', user);
 
   // If the user cookie is not found, generate a new user ID and set it
   if (!user) {
@@ -49,8 +49,10 @@ router.get("/", async function (req, res, next) {
         return res.status(500).send("Failed to compile CSS");
       }
 
+      results = (JSON.parse(JSON.stringify(results)));
+      console.log(results);
       // Render the page with results
-      res.render("index", { title: "Express", isEmpty, results });
+      res.render("index", { title: "Express", isEmpty, results, user });
     }
   );
 });

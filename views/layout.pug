@@ -5,6 +5,9 @@ html
     script.
       // Establish a WebSocket connection
       const socket = new WebSocket("ws://192.168.40.92:3000/");
+
+      // Use the 'user' variable passed from the server
+      const cookie = "#{user}";  // This will output the 'user' value into the script
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body

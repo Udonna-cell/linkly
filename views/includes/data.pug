@@ -1,20 +1,20 @@
 .tr
-    .td i.short
+    .td=data.short
         img(src="/images/Frame 46.svg" alt="link icon")
-    .td
+    .td.display
         .btn.drop.dark
             img(src="/images/chevron-down.svg" alt="chevron-down icon")
 
-    .td i.original
-    .td 
+    .td.hide=data.original
+    .td.center 
         img(src="/images/image 4.svg" alt="qr code icon")
-    .td i.click
-    if (i.status)
-        .td.active Active  
+    .td=data.clicks
+    if (data.status)
+        .td.active.hide Active  
             div
                 img(src="/images/Frame 46 (1).svg" alt="link icon")
     else 
-        .td.inactive Active  
+        .td.inactive.hide Active  
             div
                 img(src="/images/Frame 46 (2).svg" alt="link icon")
-    .td Oct - 10 -2023
+    .td.hide Oct - 10 -2023

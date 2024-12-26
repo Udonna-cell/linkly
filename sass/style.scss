@@ -74,9 +74,10 @@ header > div:last-child > p {
     font-weight: 600;
   }
 }
-.th {
+.th,.td {
   display: flex;
   gap: 6px;
+  align-items: center;
 }
 .tr {
   display: grid;
@@ -89,19 +90,18 @@ header > div:last-child > p {
   padding: 16px 15px;
   border-radius: 10px 10px 0 00;
 }
-.th,
-.th > div {
+.th {
   text-align: start;
   font-weight: bold;
   font-size: 15px;
   color: $Lite;
 }
-.td {
-  display: flex;
-  // justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
+// .td {
+//   display: flex;
+//   // justify-content: center;
+//   align-items: center;
+  
+// }
 
 .tbody > .tr {
   background-color: rgba(24, 30, 41, 0.22);
@@ -111,10 +111,10 @@ header > div:last-child > p {
   font-size: 14px;
   font-weight: lighter;
   color: $Lite;
-  gap: 010px;
+  // gap: 010px;
 }
-.tbody .td:nth-child(3) {
-  justify-content: center;
+.tbody .td.center {
+  justify-content: center !important;
 }
 .td.active {
   color: $Active;
@@ -122,22 +122,30 @@ header > div:last-child > p {
 .td.inactive {
   color: $Inactive;
 }
-.tbody {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.empty {
-  width: 300px;
-  height: 300px;
+// .tbody {
+//   position: relative;
+//   // display: flex;
+//   // flex-direction: column;
+//   // justify-content: center;
+//   // align-items: center;
+// }
+// .flex {
+//   display: flex;
+//   justify-content: center;
+//   align-items: stretch;
+// }
+// .align {
+//   text-align: center;
+// }
+// .empty {
+//   width: 300px;
+//   height: 300px;
 
-  & > img {
-    width: 100%;
-    height: 100%;
-  }
-}
+//   & > img {
+//     width: 100%;
+//     height: 100%;
+//   }
+// }
 
 .tfoot {
   backdrop-filter: blur(5px);
@@ -188,16 +196,19 @@ header > div:last-child > p {
     width: auto;
   }
   .table > .thead > .tr > .th:not(:first-child),
-  .table > .tbody > .tr > .td:not(:first-child) {
+  .table > .tbody > .tr > * {
     display: none;
   }
-  .table > .tbody > .tr > .td:nth-child(2) {
-    display: block;
+  .table > .tbody > .tr > .td:nth-child(2),
+   .table > .tbody > .tr > .td:first-child {
+    display: flex;
+    align-items: center;
   }
-  .thead {
+  .thead,
+  .tbody {
     & .tr {
       display: grid;
-      grid-template-columns: 1fr 96px;
+      grid-template-columns: 1fr 35px;
       gap: 0.5rem;
     }
   }
