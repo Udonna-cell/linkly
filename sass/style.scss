@@ -82,7 +82,7 @@ header > div:last-child > p {
 .tr {
   display: grid;
   grid-template-columns: 1fr 1fr 76px 76px 0.5fr 96px;
-  gap: 0.5rem;
+  gap: 2rem;
 }
 .thead,
 .tbody > .tr {
@@ -209,7 +209,7 @@ header > div:last-child > p {
     & .tr {
       display: grid;
       grid-template-columns: 1fr 35px;
-      gap: 0.5rem;
+      gap: 2.5rem;
     }
   }
 }
