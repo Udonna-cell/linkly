@@ -10,6 +10,10 @@
   padding: 8px 7.5px;
   padding-left: 25px;
   gap: 10px;
+
+  transition-property: all;
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 .input > input {
   flex-grow: 1;
@@ -26,7 +30,41 @@
   display: none;
 }
 
+
+.input.invalid {
+  position: relative;
+  box-shadow: inset 0 0 0 4px rgba($color: #8d1010, $alpha: 1);
+
+  &::before {
+    position: absolute;
+    content: "Invalid URL";
+    color: red;
+    font-size: small;
+    font-weight: bold;
+    bottom: -35%;
+    left: 7%;
+  }
+}
+
+.input.valid {
+  position: relative;
+  box-shadow: inset 0 0 0 4px rgba($color: #188026, $alpha: 1);
+
+  &::before {
+    position: absolute;
+    content: "Invalid URL";
+    color: green;
+    font-weight: bold;
+    font-size: small;
+    bottom: -35%;
+    left: 7%;
+  }
+}
+
 @media (max-width: 800px) {
+  .input {
+    margin-bottom: 1rem;
+  }
   .input,
   .input input {
     width: 100%;
