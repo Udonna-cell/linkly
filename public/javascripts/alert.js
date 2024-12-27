@@ -1,7 +1,7 @@
-function alertSuccess() {
+function alertSuccess(msg) {
   Swal.fire({
     title: "Good job!",
-    text: "We successfully created your shorten link",
+    text: msg,
     icon: "success"
   });
 }

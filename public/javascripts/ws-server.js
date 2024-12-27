@@ -1,6 +1,6 @@
 const btn = document.querySelector(".input > button");
 const inputLayer = document.querySelector(".input");
-// alert(cookie)
+const tableBody = document.querySelector(".tbody");
 
 btn.addEventListener("click", () => {
   if (input && input.value) {
@@ -29,20 +29,70 @@ btn.addEventListener("click", () => {
 
 // Event listener for incoming messages from the WebSocket server
 socket.addEventListener("message", (event) => {
-  const message = event.data;
+  const data = event.data;
+  try {
+    const parsedData = JSON.parse(data);
 
-  // Change button content after receiving the message
-  btn.innerHTML = `
+    // ... use parsedData ...
+    // Change button content after receiving the message
+    btn.innerHTML = `
     <p>Shorten Now!</p>
     <div class='icon'>
       <img src="/images/arrow-right.svg" alt="arrow-right icon"/>
     </div>
-  `;
-  console.log(message);
-  alertSuccess()
+    `;
+    alertSuccess(parsedData.msg);
+    const tableDtaTemplate = `
+<div class="tr">
+    <div class="td">
+        ${parsedData.userLinks[parsedData.userLinks.length - 1].short}
+        <img src="/images/Frame 46.svg" alt="link icon">
+    </div>
+    <div class="td display">
+        <div class="btn drop dark">
+            <img src="/images/chevron-down.svg" alt="chevron-down icon">
+        </div>
+    </div>
 
-  // Optionally alert or log the shortened URL
-  // alert(`New URL: ${JSON.parse(message).url}`);
+    <div class="td hide">
+        ${parsedData.userLinks[parsedData.userLinks.length - 1].original}
+    </div>
+    <div class="td center">
+        <img src="/images/image 4.svg" alt="qr code icon">
+    </div>
+    <div class="td">
+        ${parsedData.userLinks[parsedData.userLinks.length - 1].clicks}
+    </div>
+    ${
+      parsedData.userLinks[parsedData.userLinks.length - 1].status
+        ? `
+    <div class="td active hide">
+        Active
+        <div>
+            <img src="/images/Frame 46 (1).svg" alt="link icon">
+        </div>
+    </div>
+    `
+        : `
+    <div class="td inactive hide">
+        Active
+        <div>
+            <img src="/images/Frame 46 (2).svg" alt="link icon">
+        </div>
+    </div>
+    `
+    }
+    <div class="td hide">
+        Oct - 10 - 2023
+    </div>
+</div>
+`;
+    tableBody.querySelector('.empty').style.display = "none"
+    tableBody.innerHTML = tableDtaTemplate + tableBody.innerHTML;
+    console.log(parsedData);
+  } catch (error) {
+    console.error("Error parsing JSON:", error);
+  }
 });
 
 // Event listener for when the WebSocket connection is opened
