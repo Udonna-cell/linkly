@@ -179,6 +179,16 @@ header > div:last-child > p {
 // .table > .thead > .tr > .th:not(:first-child) {
 //   display: none;
 // }
+.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  & > img {
+    width: 50%;
+    height: auto;
+  }
+}
 
 @media (max-width: 800px) {
   body {

@@ -392,6 +392,16 @@ header > div:last-child > p > span {
   display: none;
 }
 
+.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.empty > img {
+  width: 50%;
+  height: auto;
+}
+
 @media (max-width: 800px) {
   body {
     padding: 1.62rem;
