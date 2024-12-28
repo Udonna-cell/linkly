@@ -55,7 +55,7 @@ router.get("/", async function (req, res, next) {
       results = actionAdder(results)
       console.log(results);
       // Render the page with results
-      res.render("index", { title: "Express", isEmpty, results, user, wss });
+      res.render("index", { title: "Linkly", isEmpty, results, user, wss });
     }
   );
 });
