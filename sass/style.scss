@@ -169,6 +169,10 @@ header > div:last-child > p {
     height: auto;
   }
 }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 @media (max-width: 800px) {
   body {
