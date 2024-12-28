@@ -4,7 +4,7 @@ html
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     script.
       // Establish a WebSocket connection
-      const socket = new WebSocket(`${window.location.origin.replace(/^http/, 'ws')}`);
+      const socket = new WebSocket(`ws://0.0.0.0:3000`);
       // const socket = new WebSocket("ws://linkly-sptz.onrender.com/");
 
       // Use the 'user' variable passed from the server
