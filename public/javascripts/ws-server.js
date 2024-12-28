@@ -49,7 +49,7 @@ socket.addEventListener("message", (event) => {
         <img src="/images/Frame 46.svg" alt="link icon">
     </div>
     <div class="td display">
-        <div class="btn drop dark">
+        <div class="btn drop dark" onclick="${parsedData.userLinks[parsedData.userLinks.length - 1].action}>
             <img src="/images/chevron-down.svg" alt="chevron-down icon">
         </div>
     </div>

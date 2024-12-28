@@ -2,7 +2,7 @@
     .td=data.short
         img(src="/images/Frame 46.svg" alt="link icon")
     .td.display(id=data.id)
-        .btn.drop.dark
+        .btn.drop.dark(onclick=data.action)
             img(src="/images/chevron-down.svg" alt="chevron-down icon")
 
     .td.hide=data.original
