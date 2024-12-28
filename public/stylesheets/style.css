@@ -410,6 +410,11 @@ header > div:last-child > p > span {
   height: auto;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 @media (max-width: 800px) {
   body {
     padding: 1.62rem;

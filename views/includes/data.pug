@@ -1,5 +1,6 @@
 .tr
-    .td.copy=data.short
+    .td.copy
+        a(href=data.short )=data.short
         img(src="/images/Frame 46.svg" alt="link icon" data-link=data.short)
     .td.display(id=data.id)
         .btn.drop.dark(onclick=data.action)

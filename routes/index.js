@@ -60,6 +60,21 @@ router.get("/", async function (req, res, next) {
   );
 });
 
+
+router.get("/:SHORT", async function (req, res, next){
+  let baseURL = process.env.URL || "http://localhost:3000/"
+  let ID = req.params.SHORT
+  let shortenLink = baseURL + ID
+  console.log(shortenLink);
+  // connection.query("UPDATE linkly SET address = 'Canyon 123' WHERE address = 'Valley 345'")
+  connection.query("SELECT original FROM linkly WHERE short=?",[shortenLink],(err, record)=>{
+    if(err) throw err;
+    console.log(record);
+    res.redirect(record[0].original)
+  })
+
+})
+
 // Helper function to parse cookies
 function getAllCookies(cook) {
   const cookies = {};

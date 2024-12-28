@@ -45,7 +45,7 @@ socket.addEventListener("message", (event) => {
     const tableDtaTemplate = `
 <div class="tr">
     <div class="td">
-        ${parsedData.userLinks[parsedData.userLinks.length - 1].short}
+        <a href="${parsedData.userLinks[parsedData.userLinks.length - 1].short}">${parsedData.userLinks[parsedData.userLinks.length - 1].short}</a>
         <img src="/images/Frame 46.svg" alt="link icon" data-link="${parsedData.userLinks[parsedData.userLinks.length - 1].short}">
     </div>
     <div class="td display">
