@@ -4,7 +4,7 @@ html
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     script.
       // Establish a WebSocket connection
-      const socket = new WebSocket("#{ws}");
+      const socket = new WebSocket("ws://linkly-sptz.onrender.com/");
 
       // Use the 'user' variable passed from the server
       const cookie = "#{user}";  // This will output the 'user' value into the script
