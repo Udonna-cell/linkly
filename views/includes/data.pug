@@ -1,12 +1,12 @@
 .tr
-    .td=data.short
-        img(src="/images/Frame 46.svg" alt="link icon")
-    .td.display
-        .btn.drop.dark
+    .td.copy=data.short
+        img(src="/images/Frame 46.svg" alt="link icon" data-link=data.short)
+    .td.display(id=data.id)
+        .btn.drop.dark(onclick=data.action)
             img(src="/images/chevron-down.svg" alt="chevron-down icon")
 
     .td.hide=data.original
-    .td.center 
+    .td.center(onclick=data.action)
         img(src="/images/image 4.svg" alt="qr code icon")
     .td=data.clicks
     if (data.status)

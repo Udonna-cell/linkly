@@ -46,10 +46,10 @@ socket.addEventListener("message", (event) => {
 <div class="tr">
     <div class="td">
         ${parsedData.userLinks[parsedData.userLinks.length - 1].short}
-        <img src="/images/Frame 46.svg" alt="link icon">
+        <img src="/images/Frame 46.svg" alt="link icon" data-link="${parsedData.userLinks[parsedData.userLinks.length - 1].short}">
     </div>
     <div class="td display">
-        <div class="btn drop dark">
+        <div class="btn drop dark" onclick="${parsedData.userLinks[parsedData.userLinks.length - 1].action}>
             <img src="/images/chevron-down.svg" alt="chevron-down icon">
         </div>
     </div>
@@ -57,7 +57,7 @@ socket.addEventListener("message", (event) => {
     <div class="td hide">
         ${parsedData.userLinks[parsedData.userLinks.length - 1].original}
     </div>
-    <div class="td center">
+    <div class="td center" onclick="${parsedData.userLinks[parsedData.userLinks.length - 1].action}">
         <img src="/images/image 4.svg" alt="qr code icon">
     </div>
     <div class="td">
@@ -87,7 +87,11 @@ socket.addEventListener("message", (event) => {
     </div>
 </div>
 `;
-    tableBody.querySelector('.empty').style.display = "none"
+    try {
+      tableBody.querySelector(".empty").style.display = "none";
+    } catch (error) {
+      console.log("data table not null");
+    }
     tableBody.innerHTML = tableDtaTemplate + tableBody.innerHTML;
     console.log(parsedData);
   } catch (error) {

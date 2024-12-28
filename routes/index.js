@@ -5,6 +5,7 @@ const sass = require("sass");
 const path = require("path");
 const fs = require("fs");
 const { connection } = require("../utility/db");
+const actionAdder = require("../utility/actionAdder")
 
 /* GET home page. */
 router.get("/", async function (req, res, next) {
@@ -51,6 +52,7 @@ router.get("/", async function (req, res, next) {
       }
       let wss = process.env.WS || "ws://192.168.40.92:3000/"
       results = (JSON.parse(JSON.stringify(results)));
+      results = actionAdder(results)
       console.log(results);
       // Render the page with results
       res.render("index", { title: "Express", isEmpty, results, user, wss });
