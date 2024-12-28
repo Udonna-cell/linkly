@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
     script.
       // Establish a WebSocket connection
       const socket = new WebSocket("#{ws}");
@@ -9,8 +9,22 @@ html
       // Use the 'user' variable passed from the server
       const cookie = "#{user}";  // This will output the 'user' value into the script
     title= title
+    // Open Graph Meta Tags for Facebook, WhatsApp, LinkedIn, etc.
+    meta(property='og:title' content='Linkly short links')
+    meta(property='og:description' content='Shorten you long link easily to url or QR code.')
+    meta(property='og:image' content='https://linkly-sptz.onrender.com/images/Screenshot.png')
+    meta(property='og:url' content='https://linkly-sptz.onrender.com/')
+    meta(property='og:type' content='website')
+    meta(property='og:site_name' content='Linkly')
+
+    // Twitter Card Meta Tags
+    //- meta(name='twitter:card' content='summary_large_image')
+    //- meta(name='twitter:title' content='Your Page Title')
+    //- meta(name='twitter:description' content='This is the description of your page for Twitter.')
+    //- meta(name='twitter:image' content='https://www.example.com/path/to/your-image.jpg')
+    //- meta(name='twitter:creator' content='@yourtwitterhandle')
     script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet' href='/stylesheets/style.css')
   body
     block content
 
