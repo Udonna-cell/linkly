@@ -57,7 +57,7 @@ socket.addEventListener("message", (event) => {
     <div class="td hide">
         ${parsedData.userLinks[parsedData.userLinks.length - 1].original}
     </div>
-    <div class="td center">
+    <div class="td center" onclick="${parsedData.userLinks[parsedData.userLinks.length - 1].action}">
         <img src="/images/image 4.svg" alt="qr code icon">
     </div>
     <div class="td">
@@ -87,7 +87,11 @@ socket.addEventListener("message", (event) => {
     </div>
 </div>
 `;
-    tableBody.querySelector('.empty').style.display = "none"
+    try {
+      tableBody.querySelector(".empty").style.display = "none";
+    } catch (error) {
+      console.log("data table not null");
+    }
     tableBody.innerHTML = tableDtaTemplate + tableBody.innerHTML;
     console.log(parsedData);
   } catch (error) {

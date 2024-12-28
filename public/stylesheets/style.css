@@ -315,7 +315,8 @@ header > div:last-child > p > span {
   font-weight: 600;
 }
 
-.th, .td {
+.th,
+.td {
   display: flex;
   gap: 6px;
   align-items: center;
@@ -354,6 +355,13 @@ header > div:last-child > p > span {
 
 .tbody .td.center {
   justify-content: center !important;
+}
+.tbody .td.center > *:hover {
+  cursor: pointer;
+  transform: scale(0.8);
+}
+.tbody .td.center > *:hover:active {
+  transform: scale(1);
 }
 
 .td.active {

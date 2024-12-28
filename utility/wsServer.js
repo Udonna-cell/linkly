@@ -1,6 +1,7 @@
 require("dotenv").config();
 const WebSocket = require("ws");
 const { connection } = require("./db");
+const actionAdder = require("./actionAdder")
 
 const createWsServer = (server) => {
   const wss = new WebSocket.Server({ server });
@@ -85,11 +86,12 @@ const createWsServer = (server) => {
                     return;
                   }
                   // console.log("Successfully retrieved user links:", results);
+                  console.log(actionAdder(results));
                   ws.send(
                     JSON.stringify({
                       msg: "Shortened URL created",
                       shortenedURL: shortenLink,
-                      userLinks: results,
+                      userLinks: actionAdder(results),
                     })
                   );
                 }
