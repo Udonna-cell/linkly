@@ -5,7 +5,7 @@ html
     script.
       // Establish a WebSocket connection
       const socket = new WebSocket(`${window.location.origin.replace(/^http/, 'ws')}`);
-// const socket = new WebSocket("ws://linkly-sptz.onrender.com/");
+      // const socket = new WebSocket("ws://linkly-sptz.onrender.com/");
 
       // Use the 'user' variable passed from the server
       const cookie = "#{user}";  // This will output the 'user' value into the script
