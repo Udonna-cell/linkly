@@ -18,10 +18,10 @@ btn.addEventListener("click", () => {
       inputLayer.classList.remove("valid");
       inputLayer.classList.add("invalid");
       btn.innerHTML = `
-      <p>Shorten Now!</p>
-      <div class='icon'>
-        <img src="/images/arrow-right.svg" alt="arrow-right icon"/>
-      </div>
+        <p>Shorten Now!</p>
+        <div class='icon'>
+          <img src="/images/arrow-right.svg" alt="arrow-right icon"/>
+        </div>
       `;
     }
   }
@@ -32,67 +32,73 @@ socket.addEventListener("message", (event) => {
   const data = event.data;
   try {
     const parsedData = JSON.parse(data);
+    console.log(parsedData.userLinks);
 
-    // ... use parsedData ...
     // Change button content after receiving the message
     btn.innerHTML = `
-    <p>Shorten Now!</p>
-    <div class='icon'>
-      <img src="/images/arrow-right.svg" alt="arrow-right icon"/>
-    </div>
+      <p>Shorten Now!</p>
+      <div class='icon'>
+        <img src="/images/arrow-right.svg" alt="arrow-right icon"/>
+      </div>
     `;
     alertSuccess(parsedData.msg);
-    const tableDtaTemplate = `
-<div class="tr">
-    <div class="td">
-        <a href="${parsedData.userLinks[(parsedData.userLinks.length)?parsedData.userLinks.length - 1 : 0].short}">${parsedData.userLinks[parsedData.userLinks.length - 1].short}</a>
-        <img src="/images/Frame 46.svg" alt="link icon" onclick="copyToClipboard(${parsedData.userLinks[parsedData.userLinks.length - 1].short})">
-    </div>
-    <div class="td display">
-        <div class="btn drop dark" onclick="${parsedData.userLinks[parsedData.userLinks.length - 1].action}>
-            <img src="/images/chevron-down.svg" alt="chevron-down icon">
-        </div>
-    </div>
 
-    <div class="td hide">
-        ${parsedData.userLinks[parsedData.userLinks.length - 1].original}
-    </div>
-    <div class="td center" onclick="${parsedData.userLinks[parsedData.userLinks.length - 1].action}">
-        <img src="/images/image 4.svg" alt="qr code icon">
-    </div>
-    <div class="td">
-        ${parsedData.userLinks[parsedData.userLinks.length - 1].clicks}
-    </div>
-    ${
-      parsedData.userLinks[parsedData.userLinks.length - 1].status
-        ? `
-    <div class="td active hide">
-        Active
-        <div>
-            <img src="/images/Frame 46 (1).svg" alt="link icon">
+    let tableDataTemplate = ""; // Initialize as empty string
+    if (parsedData.userLinks !== undefined && parsedData.userLinks.length > 0) {
+      const lastLink = parsedData.userLinks[parsedData.userLinks.length - 1];
+      tableDataTemplate = `
+        <div class="tr">
+          <div class="td">
+            <a href="${lastLink.short}">${lastLink.short}</a>
+            <img src="/images/Frame 46.svg" alt="link icon" onclick="copyToClipboard('${lastLink.short}')">
+          </div>
+          <div class="td display">
+            <div class="btn drop dark" onclick="${lastLink.action}">
+              <img src="/images/chevron-down.svg" alt="chevron-down icon">
+            </div>
+          </div>
+
+          <div class="td hide">
+            ${lastLink.original}
+          </div>
+          <div class="td center" onclick="${lastLink.action}">
+            <img src="/images/image 4.svg" alt="qr code icon">
+          </div>
+          <div class="td">
+            ${lastLink.clicks}
+          </div>
+          ${lastLink.status
+            ? `
+              <div class="td active hide">
+                Active
+                <div>
+                  <img src="/images/Frame 46 (1).svg" alt="link icon">
+                </div>
+              </div>
+            `
+            : `
+              <div class="td inactive hide">
+                Inactive
+                <div>
+                  <img src="/images/Frame 46 (2).svg" alt="link icon">
+                </div>
+              </div>
+            `
+          }
+          <div class="td hide">
+            Oct - 10 - 2023
+          </div>
         </div>
-    </div>
-    `
-        : `
-    <div class="td inactive hide">
-        Active
-        <div>
-            <img src="/images/Frame 46 (2).svg" alt="link icon">
-        </div>
-    </div>
-    `
+      `;
     }
-    <div class="td hide">
-        Oct - 10 - 2023
-    </div>
-</div>
-`;
+    
     try {
       tableBody.querySelector(".empty").style.display = "none";
     } catch (error) {
       console.log("data table not null");
     }
-    tableBody.innerHTML = tableDtaTemplate + tableBody.innerHTML;
+
+    tableBody.innerHTML = tableDataTemplate + tableBody.innerHTML;
     console.log(parsedData);
   } catch (error) {
     console.error("Error parsing JSON:", error);
@@ -102,7 +108,6 @@ socket.addEventListener("message", (event) => {
 // Event listener for when the WebSocket connection is opened
 socket.addEventListener("open", () => {
   console.log("Connected to the WebSocket server!");
-  // alert("Connected to the WebSocket server!");
 });
 
 // Event listener for WebSocket errors
@@ -111,6 +116,7 @@ socket.addEventListener("error", (error) => {
   alert("There was an error with the WebSocket connection.");
 });
 
+// Event listener for when the WebSocket connection is closed
 socket.addEventListener("close", () => {
   console.log("Disconnected from the WebSocket server");
   alert("Disconnected from the WebSocket server.");
