@@ -46,7 +46,7 @@ socket.addEventListener("message", (event) => {
 <div class="tr">
     <div class="td">
         <a href="${parsedData.userLinks[parsedData.userLinks.length - 1].short}">${parsedData.userLinks[parsedData.userLinks.length - 1].short}</a>
-        <img src="/images/Frame 46.svg" alt="link icon" data-link="${parsedData.userLinks[parsedData.userLinks.length - 1].short}">
+        <img src="/images/Frame 46.svg" alt="link icon" onclick="copyToClipboard(${parsedData.userLinks[parsedData.userLinks.length - 1].short})">
     </div>
     <div class="td display">
         <div class="btn drop dark" onclick="${parsedData.userLinks[parsedData.userLinks.length - 1].action}>

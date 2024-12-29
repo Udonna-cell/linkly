@@ -27,9 +27,9 @@ async function getClipboardText() {
   }
 }
 
-function copyToClipboard(text) {
+function copyToClipboard(text) {  
   // Create a temporary textarea element
-  const textarea = document.createElement('textarea');
+  const textarea = document.createElement("textarea");
   textarea.value = text;
 
   // Append the textarea to the body
@@ -40,12 +40,12 @@ function copyToClipboard(text) {
   textarea.setSelectionRange(0, 99999); // For mobile devices
 
   // Execute the copy command
-  document.execCommand('copy');
+  document.execCommand("copy");
 
   // Remove the temporary textarea
   document.body.removeChild(textarea);
 
   // Optionally, show a success message
-  alertSuccess('Text copied to clipboard!');
-  console.log('Text copied to clipboard!');
+  alertSuccess("Text copied to clipboard!");
+  console.log("Text copied to clipboard!");
 }

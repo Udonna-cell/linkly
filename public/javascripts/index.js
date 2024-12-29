@@ -1,11 +1,6 @@
 const aside = document.querySelector("aside");
-const copyLink = document.querySelector(".tr > .td.copy > img");
 
 
-copyLink.addEventListener("click", ()=>{
-  let activeLink = copyLink.getAttribute("data-link")
-  copyToClipboard(activeLink)
-})
 
 // Function to check if the user has scrolled 30% of the viewport height
 function checkScroll() {
