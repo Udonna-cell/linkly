@@ -70,7 +70,11 @@ router.get("/:SHORT", async function (req, res, next){
   connection.query("SELECT original FROM linkly WHERE short=?",[shortenLink],(err, record)=>{
     if(err) throw err;
     console.log(record);
-    res.redirect(record[0].original)
+    if(record[0].original){
+      res.redirect(record[0].original)
+    }else {
+      res.redirect("http://google.com")
+    }
   })
 
 })
